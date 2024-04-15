@@ -1,0 +1,90 @@
+GET http://localhost:8080/api/v0/test
+Accept: application/json
+
+<<> 2024-04-15T103937.401.json
+> 2024-04-15T103914.401.json
+<> 2024-04-15T114557.200.json
+<> 2024-04-15T114230.200.json
+<> 2024-04-15T114132.200.json
+<> 2024-04-15T114124.200.json
+<> 2024-04-15T113010.200.json
+<> 2024-04-15T112524.200.json
+<> 2024-04-15T111229.200.json
+<> 2024-04-15T104850.500.json
+<> 2024-04-15T104610.500.json
+<> 2024-04-15T104603.500.json
+<> 2024-04-15T104443.500.json
+<> 2024-04-15T104422.500.json
+<> 2024-04-15T104252.500.json
+<> 2024-04-15T103855.401.json
+
+###
+
+POST http://localhost:8080/api/v0/secure/user
+Accept: application/json
+Content-Type: application/json
+Authorization: Basic YXNzZXNzbWVudDppb25peA==
+
+{
+  "name": "Oswaldo Gonzalez",
+  "userName": "oagonzalez",
+  "email": "no@mail.com",
+  "phone": "3126464260"
+}
+
+<> 2024-04-15T114138.403.json
+<> 2024-04-15T113539.403.json
+<> 2024-04-15T113458.403.json
+<> 2024-04-15T113326.403.json
+<> 2024-04-15T113116.403.json
+<> 2024-04-15T113021.403.json
+<> 2024-04-15T112659.403.json
+<> 2024-04-15T112649.403.json
+<> 2024-04-15T112614.403.json
+<> 2024-04-15T112530.403.json
+
+###
+GET http://localhost:8080/api/v0/user/no@mail.com
+
+<> f-9.txt
+<> f-8.txt
+
+###
+DELETE http://localhost:8080/api/v0/secure/user/no@mail.com
+Authorization: Basic YXNzZXNzbWVudDppb25peA==
+
+<> f-10.txt
+<> f-7.txt
+<> f-6.txt
+
+###
+GET http://localhost:8080/api/v0/user
+
+<> 2024-04-15T113807.200.json
+<> 2024-04-15T112631.200.json
+<> 2024-04-15T070602.200.json
+<> 2024-04-15T070519.500.json
+<> 2024-04-15T070401.200.json
+
+###
+GET https://my.api.mockaroo.com/test-tecnico/search/0o2npdu/qB2lVx8uhCHlkQ==
+
+<> 2024-04-14T223124.401.json
+
+###
+POST http://localhost:8080/api/v0/external/search/1-9
+Accept: application/json
+Content-Type: application/json
+
+<> 2024-04-15T122140.200.json
+<> 2024-04-14T232851.200.json
+<> 2024-04-14T231434.200.json
+<> 2024-04-14T231114.200.json
+<> 2024-04-14T231024.500.json
+<> 2024-04-14T225125.500.json
+<> 2024-04-14T224749.500.json
+<> 2024-04-14T224319.500.json
+<> 2024-04-14T223530.500.json
+<> 2024-04-14T223027.500.json
+<> 2024-04-14T222019.500.json
+<> 2024-04-14T221949.415.json

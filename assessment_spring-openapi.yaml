@@ -1,0 +1,138 @@
+openapi: "3.0.3"
+info:
+  title: "assessment"
+  description: "assessment"
+  version: "1.0.0"
+servers:
+  - url: "https://localhost:8080"
+paths:
+  /api/v0/test:
+    get:
+      summary: "GET api/v0/test"
+      operationId: "test"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ResponseEntity"
+  /api/v0/user:
+    post:
+      summary: "POST api/v0/user"
+      operationId: "createUser"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserRequest"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponse"
+    get:
+      summary: "GET api/v0/user"
+      operationId: "getUsers"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/UserResponse"
+  /api/v0/user/{email}:
+    get:
+      summary: "GET api/v0/user/{email}"
+      operationId: "getUserByEmail"
+      parameters:
+        - name: "email"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponse"
+    delete:
+      summary: "DELETE api/v0/user/{email}"
+      operationId: "deleteUserByEmail"
+      parameters:
+        - name: "email"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponse"
+  /api/v0/external/search/{param}:
+    post:
+      summary: "POST api/v0/external/search/{param}"
+      operationId: "externalSearch"
+      parameters:
+        - name: "param"
+          in: "path"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Map"
+components:
+  schemas:
+    HttpHeaders:
+      type: "object"
+      properties: { }
+    ResponseEntity:
+      type: "object"
+      properties:
+        headers:
+          $ref: "#/components/schemas/HttpHeaders"
+      required:
+        - "headers"
+    UserRequest:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        userName:
+          type: "string"
+        email:
+          type: "string"
+        phone:
+          type: "string"
+    UserResponse:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        name:
+          type: "string"
+        userName:
+          type: "string"
+        email:
+          type: "string"
+        phone:
+          type: "string"
+    Map:
+      type: "object"
+      properties: { }
